@@ -121,3 +121,48 @@ java MyProgram        # Runs the compiled class
 - **For development (JDK)** → `sudo apt install -y openjdk-11-jdk`  
 - **For GUI-based Java apps (JRE)** → `sudo apt install -y openjdk-11-jre`  
 - **For server-side Java apps (Headless JRE)** → `sudo apt install -y openjdk-11-jre-headless`  
+
+# From Java 11 onward, JRE is no longer provided separately—the JDK includes everything you need to run and develop Java apps.
+
+***If so, why does the command `sudo apt install -y openjdk-11-jre exist`?***
+
+The reason the `openjdk-11-jre` package still exists in **Ubuntu's package manager** is mainly for **compatibility and modularity**.  
+
+### **Why Does `openjdk-11-jre` Still Exist?**
+1. **Ubuntu Packaging System**  
+   - Even though Oracle/OpenJDK **does not distribute a separate JRE** starting from **Java 11**, Ubuntu (and Debian-based systems) maintain a separate **JRE package** for users who only need to run Java applications.
+   - This is done to **avoid installing unnecessary development tools** (`javac`, debugger, etc.) for users who don't need them.
+
+2. **Modular JDK Design (JEP 220 - Java 9+)**  
+   - Since **Java 9**, the JDK is **modular**, meaning you can run Java programs with only a minimal subset of required modules.
+   - The **Ubuntu/Debian maintainers split the JDK into JDK and JRE packages** to keep the system lightweight and optimized.
+
+3. **Smaller Installation Size**  
+   - **JDK** includes **development tools** like:
+     - `javac` (compiler)
+     - `javadoc`
+     - `jdb` (debugger)
+   - **JRE** only contains:
+     - `java` (runtime)
+     - Core Java libraries  
+   - Installing `openjdk-11-jre` saves space compared to installing the full `openjdk-11-jdk`.
+
+4. **Dependency Management**  
+   - Some applications in Linux repositories declare a dependency on **JRE**, not JDK.
+   - For example, if you install a Java-based application via `apt`, it might **automatically pull `openjdk-11-jre`** instead of `openjdk-11-jdk`.
+
+---
+
+### **What Happens When You Install JDK (`openjdk-11-jdk`)?**
+- **The JDK includes the JRE**, so running Java applications still works.  
+- If you install `openjdk-11-jdk`, you do **not** need to install `openjdk-11-jre` separately.
+
+---
+
+### **What Should You Install?**
+| Use Case | Recommended Package |
+|----------|---------------------|
+| Running Java applications only | `sudo apt install -y openjdk-11-jre` |
+| Developing Java applications | `sudo apt install -y openjdk-11-jdk` |
+
+So, while **Java 11+ does not officially separate JRE**, Linux distributions **still provide `openjdk-11-jre` for user convenience and compatibility**. 🚀
