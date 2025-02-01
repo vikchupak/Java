@@ -44,9 +44,9 @@ List available versions
 sdk list java
 ```
 
-List current version
+Show current version
 ```bash
-sdk current
+sdk current java
 ```
 
 # SDKMAN! vs update-alternatives
