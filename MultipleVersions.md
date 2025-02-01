@@ -31,7 +31,7 @@ Switch Between Versions
 # For a session
 sdk use java 8.0.382-amzn
 # Permanently
-sdk use java 8.0.382-amzn
+sdk default java 8.0.382-amzn
 ```
 
 # SDKMAN! vs update-alternatives
