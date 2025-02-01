@@ -13,6 +13,21 @@ sudo update-alternatives --config java
 sudo update-alternatives --config javac
 ```
 
+List installed versions
+```bash
+ls ~/.sdkman/candidates/java
+```
+
+List available versions
+```bash
+sdk list java
+```
+
+List current version
+```bash
+sdk current
+```
+
 ## Using SDKMAN! (Recommended, user-specific)
 
 Install SDKMAN!
