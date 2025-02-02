@@ -49,6 +49,44 @@ Show current version
 sdk current java
 ```
 
+### Set java version per project with `sdk env`
+
+`sdk env` allows you to set a specific Java (or other SDK) version **per project directory** in SDKMAN. This ensures that whenever you enter a project folder, the correct Java version is automatically activated.
+
+### **1. Initialize SDKMAN Environment for Your Project**
+Inside your project folder, run:  
+```bash
+sdk env init
+```
+This creates a `.sdkmanrc` file in the current directory.
+
+### **2. Configure Java Version for the Project**
+Open the `.sdkmanrc` file and set the required Java version:  
+```bash
+java=17.0.9-tem
+```
+You can also specify other SDKs, like Gradle:  
+```bash
+java=17.0.9-tem
+gradle=8.5
+```
+
+### **3. Activate the Environment**
+Run:  
+```bash
+sdk env
+```
+This will switch to the Java and Gradle versions specified in `.sdkmanrc`.
+
+✅ **Every time you enter the project directory**, you can just run `sdk env` to use the correct Java version.
+
+### **4. Automate with `.sdkmanrc` Auto-Activation**
+If you want SDKMAN to automatically switch versions when entering the project directory, enable auto-env by running:  
+```bash
+sdk config set sdkman_auto_env=true
+```
+Now, whenever you `cd` into the project folder, the Java version will **automatically** change.
+
 # SDKMAN vs update-alternatives
 
 ***If I already installed multiple java versions using apt, will SDKMAN manage them?***
