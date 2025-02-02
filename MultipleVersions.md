@@ -13,9 +13,9 @@ sudo update-alternatives --config java
 sudo update-alternatives --config javac
 ```
 
-## Using SDKMAN! (Recommended, user-specific)
+## Using `SDKMAN` (Recommended, user-specific)
 
-Install SDKMAN!
+Install SDKMAN
 ```bash
 curl -s "https://get.sdkman.io" | bash
 ```
@@ -49,7 +49,7 @@ Show current version
 sdk current java
 ```
 
-# SDKMAN! vs update-alternatives
+# SDKMAN vs update-alternatives
 
 ***If I already installed multiple java versions using apt, will SDKMAN manage them?***
 
